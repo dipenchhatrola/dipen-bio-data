@@ -8,7 +8,7 @@ export const PhotosSection: React.FC = () => {
 
   const photos = [
     {
-      src: '/IMG_6460.JPG',
+      src: '/IMG_9131.JPG',
       subtitle: 'Portrait Photo 1',
     },
     {
@@ -20,7 +20,7 @@ export const PhotosSection: React.FC = () => {
       subtitle: 'Portrait Photo 3',
     },
     {
-      src: '/IMG_9131.JPG',
+      src: '/IMG_6460.JPG',
       subtitle: 'Portrait Photo 4',
     },
   ];

@@ -5,13 +5,7 @@ import { fadeInUp, staggerContainer } from './MotionWrapper';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section id="about" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-slate-50">
-      {/* Grid Pattern Background like Ashtrixcode design */}
-      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
-
-      {/* Light Background Soft Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-amber-500/10 via-blue-500/10 to-indigo-500/10 blur-[140px] rounded-full pointer-events-none" />
-
+    <section id="about" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Main Grid */}
@@ -120,8 +114,7 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 0.3 }}
               className="relative group max-w-sm w-full"
             >
-              {/* Outer Border Glow */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-400 via-blue-500 to-indigo-500 opacity-60 blur-md group-hover:opacity-100 transition duration-500" />
+
 
               <div className="relative rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-2xl p-3">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden bg-slate-100 relative border border-slate-200">
