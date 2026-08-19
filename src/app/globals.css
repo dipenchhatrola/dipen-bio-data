@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased min-h-screen;
+  }
+  ::selection {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+}
+
+/* Light Glassmorphism & Card Styling Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-card {
+  background: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 20px 35px -10px rgba(79, 70, 229, 0.12);
+}
+
+/* Soft, attractive, eye-friendly gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 font-extrabold;
+}
+
+.brand-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-300 font-extrabold;
+}
+
+.gold-gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 font-extrabold;
+}
+
+/* Custom scrollbar for light theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
