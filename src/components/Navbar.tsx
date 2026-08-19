@@ -221,8 +221,11 @@ export const Navbar: React.FC = () => {
                 })}
               </div>
 
-              {/* Sidebar Footer Call Action Button */}
-              <div className="p-5 border-t border-slate-100 bg-slate-50/50 space-y-3">
+              {/* Sidebar Footer: Language Selector & Call Action */}
+              <div className="p-4 border-t border-slate-100 bg-slate-50/50 space-y-3">
+                {/* Language Switcher inside Mobile Drawer */}
+                <GoogleTranslate isFullWidth />
+
                 <a
                   href="tel:+919925653609"
                   className="w-full flex items-center justify-center gap-3 px-4 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-bold text-xs shadow-lg shadow-blue-600/25 border border-blue-500/30"
