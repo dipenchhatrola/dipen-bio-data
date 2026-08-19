@@ -69,15 +69,15 @@ export const PersonalSection: React.FC = () => {
       bgColor: 'bg-rose-50 border-rose-200',
       description: 'Co-Founder and lead technology officer at Ashtrixcode (Software & Web Development Agency) with equal 50% partnership.',
     },
-    {
-      icon: IndianRupee,
-      label: 'Monthly Income',
-      value: '₹20,000 per month',
-      subText: 'Growing Tech Business',
-      color: 'text-yellow-700',
-      bgColor: 'bg-yellow-50 border-yellow-200',
-      description: 'Steady monthly revenue from active technology clients and ongoing software development projects.',
-    },
+    // {
+    //   icon: IndianRupee,
+    //   label: 'Monthly Income',
+    //   value: '₹20,000 per month',
+    //   subText: 'Growing Tech Business',
+    //   color: 'text-yellow-700',
+    //   bgColor: 'bg-yellow-50 border-yellow-200',
+    //   description: 'Steady monthly revenue from active technology clients and ongoing software development projects.',
+    // },
   ];
 
   return (
