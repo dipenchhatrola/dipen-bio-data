@@ -8,6 +8,8 @@
   }
   body {
     @apply bg-slate-50 text-slate-900 antialiased min-h-screen;
+    top: 0px !important;
+    position: static !important;
   }
   ::selection {
     background-color: #2563eb;
@@ -58,3 +60,26 @@
   scrollbar-width: none;
 }
 
+/* Google Translate styling overrides */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame {
+  display: none !important;
+}
+.skiptranslate > iframe {
+  display: none !important;
+}
+#google_translate_element {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+#goog-gt-tt {
+  display: none !important;
+  visibility: hidden !important;
+}
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}

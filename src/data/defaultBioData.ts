@@ -40,6 +40,7 @@ export const defaultBioData: BioData = {
   ],
   contactDetails: {
     father: 'Amarshibhai Parsottambhai Chhatrola - +91 99256 53609',
+    //kumar: 'Divyesh Arvindbhai Bhimani - +91 99774 99744',
     uncle: 'Prafullbhai Arjanbhai Bhalodiya - +91 98793 39682',
   },
 };
