@@ -33,22 +33,22 @@ export const FamilySection: React.FC = () => {
 
   const maternalFamily = [
     {
-      title: 'Uncle (Mama 1)',
+      title: 'Maternal Uncle',
       name: 'Mr. Prafulbhai Arjanbhai Bhalodiya',
       location: 'Vankiya',
     },
     {
-      title: 'Uncle (Mama 2)',
+      title: 'Maternal Uncle',
       name: 'Mr. Hasmukhbhai Arjanbhai Bhalodiya',
-      location: 'Vankiya / Native',
+      location: 'Vankiya',
     },
     {
-      title: 'Father Maternal (Nana)',
+      title: 'Father Maternal',
       name: 'Mr. Bhagvanjibhai Bhensdadiya',
       location: 'Moti Banugar',
     },
     {
-      title: 'Mother Maternal (Nani Family)',
+      title: 'Mother Maternal',
       name: 'Mr. Narshibhai Ratabhai Ranipa',
       location: 'Jambuda',
     },

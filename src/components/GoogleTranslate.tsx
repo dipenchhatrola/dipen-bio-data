@@ -22,6 +22,15 @@ export const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
     } else {
       setCurrentLang('en');
     }
+
+    const handleLangChange = (e: any) => {
+      if (e.detail?.lang) {
+        setCurrentLang(e.detail.lang);
+      }
+    };
+
+    window.addEventListener('languageChange', handleLangChange);
+    return () => window.removeEventListener('languageChange', handleLangChange);
   }, []);
 
   const changeLanguage = (lang: 'en' | 'gu') => {
@@ -36,13 +45,18 @@ export const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
       document.cookie = `googtrans=${cookieVal}; path=/; domain=${hostname};`;
     }
 
-    // 2. Try direct DOM combo selection if available
+    // 2. Dispatch custom event for components to sync accurately
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('languageChange', { detail: { lang } }));
+    }
+
+    // 3. Try direct DOM combo selection if available
     const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement | null;
     if (selectEl) {
       selectEl.value = lang;
       selectEl.dispatchEvent(new Event('change'));
     } else {
-      // 3. Fallback reload
+      // 4. Fallback reload
       window.location.reload();
     }
   };

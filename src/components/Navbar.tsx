@@ -8,6 +8,7 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
+  const [isGujarati, setIsGujarati] = useState(false);
   const location = useLocation();
 
   const navLinks = [
@@ -18,6 +19,22 @@ export const Navbar: React.FC = () => {
     { name: 'Photos', path: '/photos', id: 'photos', icon: Camera },
     { name: 'Contact', path: '/contact', id: 'contact', icon: Phone },
   ];
+
+  useEffect(() => {
+    const checkLang = () => {
+      const match = document.cookie.match(/(?:^|; )googtrans=([^;]*)/);
+      setIsGujarati(!!(match && match[1].includes('/gu')));
+    };
+
+    checkLang();
+
+    const handleLangChange = (e: any) => {
+      setIsGujarati(e.detail?.lang === 'gu');
+    };
+
+    window.addEventListener('languageChange', handleLangChange);
+    return () => window.removeEventListener('languageChange', handleLangChange);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,10 +102,14 @@ export const Navbar: React.FC = () => {
             </motion.div>
             <div>
               <span className="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 group-hover:text-blue-600 transition block leading-tight">
-                Dipen Chhatrola
+                <span className="notranslate" translate="no">
+                  {isGujarati ? 'દિપેન છત્રોલા' : 'Dipen Chhatrola'}
+                </span>
               </span>
               <span className="text-[10px] text-amber-600 font-bold tracking-widest uppercase block">
-                Matrimonial Bio Data
+                <span className="notranslate" translate="no">
+                  {isGujarati ? 'મેટ્રિમોનિયલ બાયો ડેટા' : 'Matrimonial Bio Data'}
+                </span>
               </span>
             </div>
           </Link>
@@ -178,10 +199,14 @@ export const Navbar: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-sm font-extrabold text-slate-900 block leading-tight">
-                      Dipen Chhatrola
+                      <span className="notranslate" translate="no">
+                        {isGujarati ? 'દિપેન છત્રોલા' : 'Dipen Chhatrola'}
+                      </span>
                     </span>
                     <span className="text-[9px] text-amber-600 font-bold uppercase tracking-wider block">
-                      Matrimonial Bio Data
+                      <span className="notranslate" translate="no">
+                        {isGujarati ? 'મેટ્રિમોનિયલ બાયો ડેટા' : 'Matrimonial Bio Data'}
+                      </span>
                     </span>
                   </div>
                 </div>

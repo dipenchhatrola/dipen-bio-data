@@ -9,25 +9,26 @@ export const Preloader: React.FC = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Live progress counter from 0% to 100% - MEDIUM SPEED
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 30);
+    // Smooth, medium-fast progress counter (1.6 seconds total)
+    const startTime = Date.now();
+    const totalDuration = 1600;
 
-    // Hide preloader after 3.2s (medium speed)
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3200);
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const currentProgress = Math.min(100, Math.round((elapsed / totalDuration) * 100));
+      setProgress(currentProgress);
+
+      if (elapsed >= totalDuration) {
+        clearInterval(interval);
+        setProgress(100);
+        setTimeout(() => {
+          setLoading(false);
+        }, 250);
+      }
+    }, 20);
 
     return () => {
       clearInterval(interval);
-      clearTimeout(timer);
     };
   }, []);
 
@@ -36,32 +37,30 @@ export const Preloader: React.FC = () => {
       {loading && (
         <motion.div
           key="preloader-slider"
-          initial={{ y: 0 }}
+          initial={{ opacity: 1 }}
           exit={{
             y: '-100%',
-            transition: { duration: 0.85, ease: [0.76, 0, 0.24, 1] },
+            opacity: 0.95,
+            transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="fixed inset-0 z-[9999] bg-slate-50 overflow-hidden font-sans select-none pointer-events-auto flex flex-col items-center justify-center"
+          className="fixed inset-0 z-[99999] bg-slate-50 overflow-hidden font-sans select-none pointer-events-auto flex flex-col items-center justify-center"
         >
-          {/* Background dot pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-70 pointer-events-none" />
-
-          {/* Soft Glow Orbs */}
-          <div className="absolute w-[500px] h-[500px] bg-gradient-to-tr from-amber-400/15 via-blue-500/10 to-indigo-500/10 blur-[130px] rounded-full pointer-events-none" />
+          {/* Ambient Glow */}
+          <div className="absolute w-96 h-96 bg-gradient-to-tr from-amber-400/20 via-blue-500/10 to-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
 
           {/* Center Orbital Container */}
           <div className="relative z-10 flex flex-col items-center">
 
             {/* Orbital Rings Graphics */}
-            <div className="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center mb-6">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center mb-5">
 
               {/* Outer Pulsing Glow */}
-              <div className="absolute inset-0 rounded-full bg-amber-400/10 blur-xl animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-amber-400/15 blur-xl animate-pulse" />
 
               {/* Outer Rotating Orbital Ring */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
+                transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
                 className="absolute inset-0 rounded-full border border-blue-400/40 border-dashed pointer-events-none"
               >
                 <div className="w-3 h-3 rounded-full bg-blue-600 absolute -top-1.5 left-1/2 -translate-x-1/2 shadow-md shadow-blue-500/50" />
@@ -72,7 +71,7 @@ export const Preloader: React.FC = () => {
               {/* Inner Counter-Rotating Orbital Ring */}
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ repeat: Infinity, duration: 24, ease: 'linear' }}
+                transition={{ repeat: Infinity, duration: 16, ease: 'linear' }}
                 className="absolute inset-4 sm:inset-5 rounded-full border border-amber-400/60 pointer-events-none"
               >
                 <div className="w-2 h-2 rounded-full bg-amber-600 absolute top-2 left-2" />
@@ -83,94 +82,72 @@ export const Preloader: React.FC = () => {
               <motion.div
                 initial={{ scale: 0, rotate: -20 }}
                 animate={{ scale: 1, rotate: 0 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white border-2 border-amber-400/90 shadow-2xl shadow-amber-500/25 flex items-center justify-center p-3"
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="relative z-10 w-22 h-22 sm:w-26 sm:h-26 rounded-full bg-white border-2 border-amber-400/90 shadow-xl shadow-amber-500/20 flex items-center justify-center p-3"
               >
-                <DecorativeSymbols type="ganesha" className="w-14 h-14 sm:w-16 sm:h-16 text-amber-600" />
+                <DecorativeSymbols type="ganesha" className="w-12 h-12 sm:w-14 sm:h-14 text-amber-600" />
               </motion.div>
 
             </div>
 
-            {/* Ashtrixcode Style Banner Title */}
+            {/* Sacred Mantra Title - Perfect Gujarati Typography */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
               className="text-center space-y-2"
             >
-              <h1 className="text-sm sm:text-xl md:text-2xl font-extrabold tracking-wider sm:tracking-[0.25em] text-amber-800 uppercase font-sans whitespace-nowrap">
-                || Shree Ganeshay Namah ||
+              <h1
+                className="notranslate text-lg sm:text-2xl md:text-3xl font-extrabold text-amber-900 tracking-normal whitespace-nowrap"
+                translate="no"
+              >
+                ॥ શ્રી ગણેશાય નમઃ ॥
               </h1>
 
               {/* Underline Accent Line */}
-              <div className="w-44 sm:w-64 h-0.5 mx-auto bg-gradient-to-r from-transparent via-amber-600 to-transparent shadow-sm" />
+              <div className="w-40 sm:w-56 h-0.5 mx-auto bg-gradient-to-r from-transparent via-amber-600 to-transparent shadow-sm" />
 
               {/* Subtitle */}
-              <p className="text-xs sm:text-sm font-bold text-slate-500 tracking-widest uppercase pt-2">
-                Dipen Bio Data
+              <p className="text-xs sm:text-sm font-bold text-slate-600 tracking-wider uppercase pt-1">
+                Dipen Chhatrola • Bio Data
               </p>
             </motion.div>
 
-            {/* ===== NEW STYLISH PROGRESS BAR ===== */}
-            <div className="mt-7 w-52 sm:w-72 space-y-3">
-              {/* Header Label + Percentage Counter with Glow */}
-              <div className="flex items-center justify-between text-[11px] font-extrabold tracking-widest uppercase">
-                <span className="flex items-center gap-2 text-slate-500">
-                  <span className="relative flex h-2.5 w-2.5">
+            {/* Stylish Medium-Fast Progress Bar */}
+            <div className="mt-6 w-56 sm:w-72 space-y-2.5">
+              {/* Header Label + Percentage Counter */}
+              <div className="flex items-center justify-between text-[11px] font-extrabold tracking-wider">
+                <span className="flex items-center gap-2 text-slate-600">
+                  <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                   </span>
                   <span>Loading</span>
                 </span>
-                <span className="text-amber-700 font-mono text-sm bg-amber-100/50 px-2.5 py-0.5 rounded-full border border-amber-200/50 shadow-sm">
+                <span
+                  className="notranslate text-amber-800 font-mono text-xs font-bold bg-amber-100/70 px-2.5 py-0.5 rounded-full border border-amber-200 shadow-sm"
+                  translate="no"
+                >
                   {progress}%
                 </span>
               </div>
 
-              {/* Modern Progress Bar with Segments Effect */}
-              <div className="relative h-3 w-full bg-gradient-to-r from-slate-100 to-slate-200 rounded-full p-0.5 border border-slate-200/80 shadow-inner overflow-hidden">
-                {/* Animated Fill with Gradient & Shimmer */}
+              {/* Smooth Animated Progress Bar */}
+              <div className="relative h-2.5 w-full bg-slate-200/90 rounded-full p-0.5 border border-slate-300/80 shadow-inner overflow-hidden">
                 <motion.div
                   style={{ width: `${progress}%` }}
-                  className="h-full rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 shadow-lg shadow-amber-500/40 relative overflow-hidden"
+                  className="h-full rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 shadow-md shadow-amber-500/40 relative overflow-hidden"
                 >
-                  {/* Shimmer Effect Overlay */}
+                  {/* Shimmer Effect */}
                   <motion.div
                     animate={{ x: ['-100%', '100%'] }}
-                    transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }}
-                    className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]"
+                    transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                    className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg]"
                   />
-                  
-                  {/* Glowing Pulse at Leading Edge */}
-                  <div className="absolute right-0 top-0 bottom-0 w-4 bg-white/60 rounded-full blur-sm animate-pulse" />
-                  
-                  {/* Progress Segments (Dots) */}
-                  <div className="absolute inset-0 flex items-center justify-around px-1">
-                    {[...Array(8)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="w-1 h-1 rounded-full bg-white/30"
-                        style={{ opacity: progress > (i + 1) * 12.5 ? 0.6 : 0.2 }}
-                      />
-                    ))}
-                  </div>
                 </motion.div>
               </div>
-
-              {/* Decorative Dots Below Progress Bar */}
-              <div className="flex justify-center gap-1.5 opacity-40">
-                {[...Array(12)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-0.5 rounded-full transition-all duration-300 ${
-                      i < Math.floor(progress / 8.34)
-                        ? 'w-3 bg-amber-500'
-                        : 'w-1.5 bg-slate-300'
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
+
           </div>
         </motion.div>
       )}

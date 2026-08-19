@@ -96,7 +96,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="text-xs font-bold text-blue-700 uppercase tracking-wider block">
-                  Kumar
+                  Jijaji
                 </span>
                 <h3 className="text-base sm:text-lg font-extrabold text-slate-900 truncate">
                   Divyesh A. Bhimani
@@ -144,7 +144,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block">
-                  Uncle (Mama)
+                  Maternal
                 </span>
                 <h3 className="text-base sm:text-lg font-extrabold text-slate-900 truncate">
                   Prafullbhai A. Bhalodiya

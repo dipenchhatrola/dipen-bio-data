@@ -5,6 +5,23 @@ import { Sparkles, Phone, MessageSquare, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [showFloatingBtn, setShowFloatingBtn] = useState(false);
+  const [isGujarati, setIsGujarati] = useState(false);
+
+  useEffect(() => {
+    const checkLang = () => {
+      const match = document.cookie.match(/(?:^|; )googtrans=([^;]*)/);
+      setIsGujarati(!!(match && match[1].includes('/gu')));
+    };
+
+    checkLang();
+
+    const handleLangChange = (e: any) => {
+      setIsGujarati(e.detail?.lang === 'gu');
+    };
+
+    window.addEventListener('languageChange', handleLangChange);
+    return () => window.removeEventListener('languageChange', handleLangChange);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,10 +70,14 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-base font-extrabold text-white group-hover:text-blue-400 transition">
-                    Dipen Chhatrola
+                    <span className="notranslate" translate="no">
+                      {isGujarati ? 'દિપેન છત્રોલા' : 'Dipen Chhatrola'}
+                    </span>
                   </span>
                   <span className="block text-[10px] text-amber-400 font-bold tracking-widest uppercase">
-                    Matrimonial Bio Data
+                    <span className="notranslate" translate="no">
+                      {isGujarati ? 'મેટ્રિમોનિયલ બાયો ડેટા' : 'Matrimonial Bio Data'}
+                    </span>
                   </span>
                 </div>
               </Link>
@@ -138,7 +159,13 @@ export const Footer: React.FC = () => {
 
           {/* Footer Bottom Bar */}
           <div className="pt-6 flex items-center justify-between gap-4 text-[11px] text-slate-400">
-            <p>© {new Date().getFullYear()} Dipen Chhatrola • All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()}{' '}
+              <span className="notranslate" translate="no">
+                {isGujarati ? 'દિપેન છત્રોલા' : 'Dipen Chhatrola'}
+              </span>{' '}
+              • All rights reserved.
+            </p>
           </div>
 
         </div>
