@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Dipen Chhatrola - Bio Data',
-  description: 'Matrimonial Bio Data created with Next.js and Tailwind CSS',
+  description: 'Matrimonial Bio Data',
 };
 
 export default function RootLayout({
