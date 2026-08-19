@@ -98,7 +98,7 @@ export const Preloader: React.FC = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-center space-y-2"
             >
-              <h1 className="text-xl sm:text-3xl font-extrabold tracking-[0.25em] sm:tracking-[0.3em] text-amber-800 uppercase font-sans">
+              <h1 className="text-sm sm:text-xl md:text-2xl font-extrabold tracking-wider sm:tracking-[0.25em] text-amber-800 uppercase font-sans whitespace-nowrap">
                 || Shree Ganeshay Namah ||
               </h1>
 
