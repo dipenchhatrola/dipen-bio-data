@@ -53,9 +53,9 @@ export const ContactSection: React.FC = () => {
                 <h3 className="text-base sm:text-lg font-extrabold text-slate-900 truncate">
                   Amarshibhai P. Chhatrola
                 </h3>
-                <p className="text-xs text-slate-600 font-medium truncate">
-                  Retired Govt. Employee
-                </p>
+                {/* <p className="text-xs text-slate-600 font-medium truncate">
+                  Retired Govt. Accountant, Finance Department.
+                </p> */}
               </div>
             </div>
 
@@ -70,7 +70,7 @@ export const ContactSection: React.FC = () => {
                 <span>+91 99256 53609</span>
               </motion.a>
 
-              <motion.a
+              {/* <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="https://wa.me/919925653609?text=Hello%20Amarshibhai,%20I%20am%20interested%20in%20Dipen's%20Bio%20Data"
@@ -80,7 +80,7 @@ export const ContactSection: React.FC = () => {
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
 
@@ -96,14 +96,14 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="text-xs font-bold text-blue-700 uppercase tracking-wider block">
-                  Jijaji
+                  Brother-In-Law
                 </span>
                 <h3 className="text-base sm:text-lg font-extrabold text-slate-900 truncate">
                   Divyesh A. Bhimani
                 </h3>
-                <p className="text-xs text-slate-600 font-medium truncate">
+                {/* <p className="text-xs text-slate-600 font-medium truncate">
                   IT Engineer
-                </p>
+                </p> */}
               </div>
             </div>
 
@@ -118,7 +118,7 @@ export const ContactSection: React.FC = () => {
                 <span>+91 99744 99774</span>
               </motion.a>
 
-              <motion.a
+              {/* <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="https://wa.me/919974499774?text=Hello%20Divyesh,%20I%20am%20interested%20in%20Dipen's%20Bio%20Data"
@@ -128,7 +128,7 @@ export const ContactSection: React.FC = () => {
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
 
@@ -149,9 +149,9 @@ export const ContactSection: React.FC = () => {
                 <h3 className="text-base sm:text-lg font-extrabold text-slate-900 truncate">
                   Prafullbhai A. Bhalodiya
                 </h3>
-                <p className="text-xs text-slate-600 font-medium truncate">
+                {/* <p className="text-xs text-slate-600 font-medium truncate">
                   Maternal Family Contact
-                </p>
+                </p> */}
               </div>
             </div>
 
@@ -166,7 +166,7 @@ export const ContactSection: React.FC = () => {
                 <span>+91 98793 39682</span>
               </motion.a>
 
-              <motion.a
+              {/* <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="https://wa.me/919879339682?text=Hello%20Prafulbhai,%20I%20am%20interested%20in%20Dipen's%20Bio%20Data"
@@ -176,7 +176,7 @@ export const ContactSection: React.FC = () => {
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
 

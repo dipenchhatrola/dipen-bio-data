@@ -5,23 +5,6 @@ import { Sparkles, Phone, MessageSquare, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [showFloatingBtn, setShowFloatingBtn] = useState(false);
-  const [isGujarati, setIsGujarati] = useState(false);
-
-  useEffect(() => {
-    const checkLang = () => {
-      const match = document.cookie.match(/(?:^|; )googtrans=([^;]*)/);
-      setIsGujarati(!!(match && match[1].includes('/gu')));
-    };
-
-    checkLang();
-
-    const handleLangChange = (e: any) => {
-      setIsGujarati(e.detail?.lang === 'gu');
-    };
-
-    window.addEventListener('languageChange', handleLangChange);
-    return () => window.removeEventListener('languageChange', handleLangChange);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,14 +53,10 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-base font-extrabold text-white group-hover:text-blue-400 transition">
-                    <span className="notranslate" translate="no">
-                      {isGujarati ? 'દિપેન છત્રોલા' : 'Dipen Chhatrola'}
-                    </span>
+                    Dipen Chhatrola
                   </span>
                   <span className="block text-[10px] text-amber-400 font-bold tracking-widest uppercase">
-                    <span className="notranslate" translate="no">
-                      {isGujarati ? 'મેટ્રિમોનિયલ બાયો ડેટા' : 'Matrimonial Bio Data'}
-                    </span>
+                    Matrimonial Bio Data
                   </span>
                 </div>
               </Link>
@@ -140,7 +119,7 @@ export const Footer: React.FC = () => {
                   </div>
                 </a>
 
-                <a
+                {/* <a
                   href="https://wa.me/919925653609"
                   target="_blank"
                   rel="noreferrer"
@@ -151,21 +130,57 @@ export const Footer: React.FC = () => {
                     <span className="block text-[10px] text-slate-400 font-semibold">WhatsApp Chat</span>
                     <span className="font-bold text-xs text-white">Send Message</span>
                   </div>
+                </a> */}
+              </div>
+              <div className="space-y-2">
+                <a
+                  href="tel:+919974499774"
+                  className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700/80 border border-slate-700 text-slate-200 transition group"
+                >
+                  <Phone className="w-4 h-4 text-blue-400 group-hover:scale-110 transition" />
+                  <div>
+                    <span className="block text-[10px] text-slate-400 font-semibold">Brother-in-law</span>
+                    <span className="font-bold text-xs text-white">+91 99744 99774</span>
+                  </div>
                 </a>
+
+                {/* <a
+                  href="https://wa.me/919974499774"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700/80 border border-slate-700 text-slate-200 transition group"
+                >
+                  <MessageSquare className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition" />
+                  <div>
+                    <span className="block text-[10px] text-slate-400 font-semibold">WhatsApp Chat</span>
+                    <span className="font-bold text-xs text-white">Send Message</span>
+                  </div>
+                </a> */}
               </div>
             </div>
 
           </div>
 
           {/* Footer Bottom Bar */}
-          <div className="pt-6 flex items-center justify-between gap-4 text-[11px] text-slate-400">
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
             <p>
-              © {new Date().getFullYear()}{' '}
-              <span className="notranslate" translate="no">
-                {isGujarati ? 'દિપેન છત્રોલા' : 'Dipen Chhatrola'}
-              </span>{' '}
-              • All rights reserved.
+              © {new Date().getFullYear()} <span className="text-slate-300 font-semibold">Dipen Chhatrola</span> • All rights reserved.
             </p>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/80 shadow-sm">
+              <span className="text-slate-400 font-medium">
+                Designed by
+              </span>
+              <a
+                href="https://ashtrixcode.com"
+                target="_blank"
+                rel="noreferrer"
+                className="font-black tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-300 hover:from-sky-300 hover:to-indigo-200 hover:underline decoration-sky-400/40 underline-offset-2 transition-all duration-300"
+              >
+                ASHTRIXCODE
+              </a>
+              <Sparkles className="w-3 h-3 text-amber-400" />
+            </div>
           </div>
 
         </div>

@@ -97,10 +97,7 @@ export const Preloader: React.FC = () => {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-center space-y-2"
             >
-              <h1
-                className="notranslate text-lg sm:text-2xl md:text-3xl font-extrabold text-amber-900 tracking-normal whitespace-nowrap"
-                translate="no"
-              >
+              <h1 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-amber-900 tracking-normal whitespace-nowrap">
                 ॥ શ્રી ગણેશાય નમઃ ॥
               </h1>
 
@@ -124,10 +121,7 @@ export const Preloader: React.FC = () => {
                   </span>
                   <span>Loading</span>
                 </span>
-                <span
-                  className="notranslate text-amber-800 font-mono text-xs font-bold bg-amber-100/70 px-2.5 py-0.5 rounded-full border border-amber-200 shadow-sm"
-                  translate="no"
-                >
+                <span className="text-amber-800 font-mono text-xs font-bold bg-amber-100/70 px-2.5 py-0.5 rounded-full border border-amber-200 shadow-sm">
                   {progress}%
                 </span>
               </div>

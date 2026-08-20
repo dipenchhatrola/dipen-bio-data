@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Sparkles, Menu, X, User, Heart, Landmark, Camera, ChevronRight } from 'lucide-react';
-import { GoogleTranslate } from './GoogleTranslate';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
-  const [isGujarati, setIsGujarati] = useState(false);
   const location = useLocation();
 
   const navLinks = [
@@ -19,22 +17,6 @@ export const Navbar: React.FC = () => {
     { name: 'Photos', path: '/photos', id: 'photos', icon: Camera },
     { name: 'Contact', path: '/contact', id: 'contact', icon: Phone },
   ];
-
-  useEffect(() => {
-    const checkLang = () => {
-      const match = document.cookie.match(/(?:^|; )googtrans=([^;]*)/);
-      setIsGujarati(!!(match && match[1].includes('/gu')));
-    };
-
-    checkLang();
-
-    const handleLangChange = (e: any) => {
-      setIsGujarati(e.detail?.lang === 'gu');
-    };
-
-    window.addEventListener('languageChange', handleLangChange);
-    return () => window.removeEventListener('languageChange', handleLangChange);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,14 +84,10 @@ export const Navbar: React.FC = () => {
             </motion.div>
             <div>
               <span className="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 group-hover:text-blue-600 transition block leading-tight">
-                <span className="notranslate" translate="no">
-                  {isGujarati ? 'દિપેન છત્રોલા' : 'Dipen Chhatrola'}
-                </span>
+                Dipen Chhatrola
               </span>
               <span className="text-[10px] text-amber-600 font-bold tracking-widest uppercase block">
-                <span className="notranslate" translate="no">
-                  {isGujarati ? 'મેટ્રિમોનિયલ બાયો ડેટા' : 'Matrimonial Bio Data'}
-                </span>
+                Matrimonial Bio Data
               </span>
             </div>
           </Link>
@@ -135,11 +113,8 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Action Area: Language Selector + Call Father + Mobile Toggle Button */}
+          {/* Action Area: Call Father + Mobile Toggle Button */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Google Translate Language Selector */}
-            <GoogleTranslate />
-
             {/* Desktop Action Button: Call Father */}
             <motion.a
               whileHover={{ scale: 1.04 }}
@@ -199,14 +174,10 @@ export const Navbar: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-sm font-extrabold text-slate-900 block leading-tight">
-                      <span className="notranslate" translate="no">
-                        {isGujarati ? 'દિપેન છત્રોલા' : 'Dipen Chhatrola'}
-                      </span>
+                      Dipen Chhatrola
                     </span>
                     <span className="text-[9px] text-amber-600 font-bold uppercase tracking-wider block">
-                      <span className="notranslate" translate="no">
-                        {isGujarati ? 'મેટ્રિમોનિયલ બાયો ડેટા' : 'Matrimonial Bio Data'}
-                      </span>
+                      Matrimonial Bio Data
                     </span>
                   </div>
                 </div>
@@ -246,11 +217,8 @@ export const Navbar: React.FC = () => {
                 })}
               </div>
 
-              {/* Sidebar Footer: Language Selector & Call Action */}
+              {/* Sidebar Footer: Call Action */}
               <div className="p-4 border-t border-slate-100 bg-slate-50/50 space-y-3">
-                {/* Language Switcher inside Mobile Drawer */}
-                <GoogleTranslate isFullWidth />
-
                 <a
                   href="tel:+919925653609"
                   className="w-full flex items-center justify-center gap-3 px-4 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-bold text-xs shadow-lg shadow-blue-600/25 border border-blue-500/30"

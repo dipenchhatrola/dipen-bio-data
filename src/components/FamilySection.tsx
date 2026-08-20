@@ -8,7 +8,7 @@ export const FamilySection: React.FC = () => {
     {
       role: 'Father',
       name: 'Mr. Amarshibhai Parsottambhai Chhatrola',
-      occupation: 'Retired Govt. Employee',
+      occupation: 'Retired Govt. Accountant, Finance Department',
       icon: Shield,
     },
     {

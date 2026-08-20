@@ -93,6 +93,15 @@ export const HeroSection: React.FC = () => {
                 <Phone className="w-4 h-4" />
                 <span>Contact Father (+91 99256 53609)</span>
               </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                href="tel:+919974499774"
+                className="flex items-center gap-2.5 px-7 py-3.5 text-sm font-bold rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-lg shadow-blue-600/25 transition"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Contact Brother-in-law (+91 99744 99774)</span>
+              </motion.a>
             </div>
           </motion.div>
 
